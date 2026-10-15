@@ -1,0 +1,836 @@
+/* 1. BODY ACTUALIZADO: Compacto y alineado arriba */
+body {
+    background: linear-gradient(135deg, #0f0c20 0%, #1714a2 50%, #00f2fe 100%);
+    height: auto; /* Evita que la página se estire artificialmente */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    padding: 10px; 
+    box-sizing: border-box;
+    font-size: 14px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido arriba de forma natural */
+    align-items: center;
+} /* <-- ¡Esta llave faltaba y rompía todo! */
+
+/* Espacio para el formulario */
+label {
+    font-size: 14px; 
+    margin-right: 15px;
+    display: inline-block;
+} 
+
+/* Títulos llamativos */
+h1, h2 {
+    color: #ffffff;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    font-size: 1.8rem; 
+    margin-top: 10px;  
+    margin-bottom: 10px; 
+}
+
+/* Estilo moderno para tu tabla */
+table {  /* ¡AÑADE ESTA LÍNEA AQUÍ EN LA 33! */
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1); /* Efecto cristal translúcido */
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+/* Busca tu regla table actual y asegúrate de agregarle esta línea de transition: */
+table {
+    /* ... mantén tus otras propiedades de width, background, etc. ... */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hace la animación suave */
+}
+
+/* 2. NUEVA REGLA: Efecto al pasar el ratón */
+table:hover {
+    transform: translateY(-5px); /* Eleva la tabla sutilmente 5 píxeles */
+    box-shadow: 0px 10px 25px rgba(0, 242, 254, 0.3); /* Crea un brillo cian abajo */
+}
+
+/* Estilo para los campos del formulario */
+input[type="text"] {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+}
+
+/* Botón interactivo */
+input[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    background: #00f2fe;
+    color: #0f0c20;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #764ba2;
+    color: white;
+}
+/* 3. ESPACIADO DE ICONOS: Separa el icono del texto del título */
+h1 i, h2 i {
+    margin-right: 10px;
+    color: #00f2fe; /* Hace que los iconos brillen en color cian */
+}
+/* 1. ANIMACIÓN DEL FONDO: Modifica el body para que el degradado se mueva */
+body {
+    /* Hacemos el degradado más grande para que tenga margen para moverse */
+    background-size: 400% 400% !important;
+    
+    /* Activamos la animación: se llamará "cambioFondo", durará 15 segundos y será infinita */
+    animation: cambioFondo 15s ease infinite;
+}
+
+/* 2. DEFINICIÓN DE LA ANIMACIÓN: Indicamos las posiciones del degradado */
+@keyframes cambioFondo {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* 1. ANIMACIÓN DEL FONDO: Modifica el body para que el degradado fluya */
+body {
+    /* Hacemos el degradado más grande para darle margen de movimiento */
+    background-size: 400% 400% !important;
+    
+    /* Activamos la animación: se llamará "cambioFondo", durará 12 segundos e irá en bucle infinito */
+    animation: cambioFondo 12s ease infinite;
+}
+
+/* 2. DEFINICIÓN DE LA ANIMACIÓN: Indicamos cómo cambian las posiciones */
+@keyframes cambioFondo {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* --- MENÚ SUPERIOR FIJO --- */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.08); /* Cristal translúcido */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between; /* Separa el logo de los enlaces */
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+    z-index: 1000; /* Asegura que siempre quede por encima de todo */
+}
+
+/* Estilo del nombre de la marca/logo */
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/* Contenedor de los enlaces */
+.menu-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none; /* Quita el subrayado feo de los enlaces */
+    margin-left: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón por encima de los enlaces */
+.menu-links a:hover {
+    color: #00f2fe; /* Brillo cian */
+}
+
+/* Estilo para el enlace de la página activa actual */
+.menu-links a.active {
+    color: #ffffff;
+    border-bottom: 2px solid #00f2fe;
+    padding-bottom: 5px;
+}
+/* --- BOTÓN DE CANCELAR (USANDO CLASES) --- */
+
+.btn-cancelar {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    background: #ff4a5a; /* Rojo neón llamativo */
+    color: #ffffff;      /* Texto blanco */
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;   /* Separa este botón del de Consultar */
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Efecto al pasar el ratón por encima del botón rojo */
+.btn-cancelar:hover {
+    background: #b81d30; /* Rojo más oscuro al hacer hover */
+    transform: scale(1.05); /* Se hace un pelín más grande al apuntarlo */
+}
+/* --- EFECTO DE BRILLO EN EL CAMPO DE TEXTO --- */
+
+input[type="text"] {
+    /* Añadimos una transición para que el cambio no sea brusco */
+    transition: all 0.3s ease;
+}
+
+/* Cuando el usuario hace clic dentro del cuadro (focus) */
+input[type="text"]:focus {
+    border-color: #00f2fe; /* El borde se vuelve cian */
+    box-shadow: 0px 0px 15px rgba(0, 242, 254, 0.6); /* Brillo de neón exterior */
+    background: rgba(255, 255, 255, 0.2); /* Se aclara un poco el fondo */
+    outline: none; /* Elimina el borde negro feo que pone el navegador por defecto */
+}
+/* --- TARJETAS DE ESTADO (DASHBOARD) --- */
+
+/* El contenedor que alinea las tres tarjetas en fila horizontal */
+.dashboard-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Separación entre cada tarjeta */
+    margin: 20px 0 40px 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Diseño individual de cada tarjeta translúcida */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 20px;
+    width: 180px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Título pequeño dentro de la tarjeta */
+.card h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* El número grande en cian brillante */
+.card-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00f2fe;
+    margin: 5px 0;
+}
+
+/* El texto aclaratorio de abajo */
+.card-status {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+/* Animación sutil al pasar el ratón por encima de una tarjeta */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15); /* Se ilumina un poco */
+}
+/* --- ESTADO CRÍTICO (CPU SOBRECARGADA) --- */
+
+.card-value.danger {
+    color: #ff4a5a; /* Cambia el texto del número a rojo neón */
+    text-shadow: 0 0 10px rgba(255, 74, 90, 0.5); /* Le da un pequeño efecto de brillo de alerta */
+}
+/* --- ANIMACIÓN DE ALARMA (PARPADEO) --- */
+
+.parpadeo {
+    color: #ff4a5a !important; /* Fuerza a que este texto también sea rojo */
+    font-weight: bold;
+    /* Activamos la animación: se llamará "alarma", durará 1 segundo, será infinita y alternará */
+    animation: alarma 1s infinite alternate; 
+}
+
+@keyframes alarma {
+    0% {
+        opacity: 0.3; /* Casi invisible */
+        text-shadow: none;
+    }
+    100% {
+        opacity: 1; /* Completamente visible y brillante */
+        text-shadow: 0 0 8px rgba(255, 74, 90, 0.8);
+    }
+}
+/* --- BARRA DE PROGRESO DE CARGA --- */
+
+/* El fondo gris translúcido de la barra */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden; /* Corta lo que sobresalga */
+}
+
+/* El relleno real de la barra (marcado al 92%) */
+.progress-fill {
+    width: 92%; /* Aquí decides cuánto se rellena */
+    height: 100%;
+    background: #ff4a5a; /* Rojo neón */
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(255, 74, 90, 0.7); /* Brillo de neón */
+}
+/* --- ESTILOS PARA TU CAJA INTERACTIVA --- */
+
+.caja-interactiva {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 12px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.foto-perfil {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* Hace la foto completamente redonda */
+    object-fit: cover;
+    border: 1px solid #00f2fe; /* Borde cian brillante */
+}
+
+.tiempo-contenedor {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#js-hora {
+    font-size: 13px;
+    font-weight: bold;
+    color: #00f2fe; /* Hora en cian */
+    font-family: monospace; /* Tipografía de reloj digital */
+}
+
+#js-fecha {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+}
+/* --- CONTENEDOR DE LAS BOLAS GENERADAS --- */
+#resultado-loteria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;            
+    margin: 15px 0;      
+    min-height: 40px;    
+    flex-wrap: wrap;     
+}
+/* ==========================================
+   NUEVOS ESTILOS PARA LA GRILLA DE JUEGOS
+   ========================================== */
+
+/* Contenedor principal de la cuadrícula */
+/* Contenedor principal de la cuadrícula */
+.games-grid {
+    display: grid;
+    /* Reducimos el tamaño mínimo a 180px para que entren más por fila */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px; /* Reducido de 20px a 15px */
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto; /* Reducido el margen superior */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta individual de cada juego abajo */
+.game-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px; /* ¡Reducido de 20px a 12px para que sea más fina! */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-3px); /* Efecto más sutil */
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 15px rgba(0, 242, 254, 0.15);
+    border-color: rgba(0, 242, 254, 0.4);
+}
+
+/* El círculo con la inicial del juego (Icono) */
+.game-badge {
+    width: 32px;  /* ¡Reducido de 45px a 32px! */
+    height: 32px; /* ¡Reducido de 45px a 32px! */
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem; /* Letra un poco más pequeña dentro del círculo */
+    margin: 0 auto 8px auto; /* Reducido el espacio inferior */
+}
+
+/* Reduce los títulos dentro de cada tarjeta azul */
+.game-card h3 {
+    font-size: 0.95rem;
+    margin: 4px 0;
+    font-weight: 600;
+}
+
+/* Reduce las descripciones y precios dentro de las tarjetas */
+.game-card p {
+    font-size: 0.75rem;
+    margin: 0;
+    opacity: 0.7;
+    line-height: 1.3;
+}
+
+/* Tarjetas de resultados generados */
+.result-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+/* Contenedor de las líneas y las esferas */
+.ticket-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 15px;
+}
+
+.ticket-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    min-width: 90px;
+    text-align: left;
+}
+
+.ticket-numbers {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Diseño de las bolas de números */
+.ball {
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    color: #0f0c20;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Estrellas o reintegros especiales */
+.ball.special {
+    background: #00f2fe;
+    color: #0f0c20;
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+}
+
+/* Formato ancho para textos o fechas largas */
+.ball.wide {
+    width: auto;
+    padding: 0 12px;
+    border-radius: 20px;
+}
+/* --- ESTILOS COMPACTOS PARA LA BARRA DE NAVEGACIÓN --- */
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.08); /* Fondo sutil translúcido */
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px; /* Altura reducida para que sea más fina */
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Nombre del panel a la izquierda */
+.logo {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Contenedor central (Foto + Reloj + Fecha) */
+.caja-interactiva {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Corrección de la foto de perfil para que sea un círculo perfecto */
+.foto-perfil {
+    width: 32px;  /* Tamaño más pequeño y controlado */
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover; /* Evita que la imagen se estire o deforme */
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Formato pequeño para el bloque de tiempo */
+.tiempo-contenedor {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Enlaces del menú a la derecha */
+.menu-links {
+    display: flex;
+    gap: 15px;
+}
+
+.menu-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    transition: all 0.2s ease;
+}
+
+.menu-links a:hover, 
+.menu-links a.active {
+    color: #00f2fe; /* Color cyan que combina con tu fondo */
+}
+
+/* Contenedor principal del generador */
+section, .sectiongenerator, main {
+    margin: 75px auto 20px auto; /* Centra el bloque entero horizontalmente */
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center; /* Centra el título y textos de dentro */
+}
+
+/* Reducir márgenes de los textos informativos */
+.sectiongenerator p {
+    font-size: 0.85rem;
+    margin: 5px 0 15px 0;
+    opacity: 0.8;
+}
+
+/* Estilizar el selector de juego y país */
+select {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+select option {
+    background: #1714a2; /* Fondo oscuro para que se lea bien el texto de las opciones */
+    color: #ffffff;
+}
+
+/* Estilizar el botón de generar */
+button, input[type="button"] {
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+    color: #000000;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: transform 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.97); /* Efecto de pulsación */
+}
+/* Cuadrícula para que salgan varias tarjetas por fila */
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo para encoger y redondear cada tarjeta azul */
+.tarjeta-juego {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+/* El círculo con la letra de la tarjeta */
+.tarjeta-icono {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #00f2fe, #4facfe);
+    color: #000000;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+}
+/* 1. Esto alineará los 12 juegos (Euromillones, Primitiva, etc.) en filas horizontales */
+.games-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;       /* Permite que salten de línea cuando no quepan */
+  justify-content: center; /* Centra las tarjetas en la pantalla */
+  gap: 20px;            /* Separa las tarjetas entre sí */
+  padding: 20px;
+}
+
+/* 2. Por si acaso, esto también alineará los resultados (tickets) cuando se generen */
+#tickets-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+/* ==========================================
+   CÓDIGO DE EMERGENCIA PARA MÓVILES (AL FINAL DE ESTILOS.CSS)
+   ========================================== */
+@media (max-width: 600px) {
+    /* 1. Fuerza a los juegos de abajo a ponerse uno debajo de otro */
+    .games-grid, #games-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Hace que cada juego ocupe el ancho del móvil y se lea bien */
+    .game-card {
+        width: 90% !important;
+        min-width: 90% !important;
+        margin: 10px auto !important;
+    }
+
+    /* 2. Ordena los botones y selectores de arriba hacia abajo */
+    .controls-panel, div[class*="controls-panel"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    /* Ajusta los botones al tamaño de la pantalla del móvil */
+    .controls-panel select, 
+    .controls-panel button, 
+    .controls-panel input,
+    .controls-panel .field-group {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 5px auto !important;
+    }
+
+    /* 3. Ajusta la zona de resultados */
+    .result-card, #results, .results-panel, #tickets-container {
+        width: 95% !important;
+        min-width: 95% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+}
+  .menu-derecha {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        /* 1. LIBERA EL ESPACIO DE TODOS LOS EMBUDOS O CONTENEDORES INTERMEDIOS */
+        main, 
+        .page-shell, 
+        section.generator, 
+        .more-games, 
+        section[class*="more games"] {
+            width: 100% !important;
+            max-width: 100% !important;
+            display: block !important;
+        }
+
+        /* 2. REORGANIZA LA CUADRÍCULA EN ORDENADOR */
+        #games-grid, .games-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 25px !important;
+            width: 95% !important;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            padding: 20px 0 !important;
+        }
+
+        /* 3. MANTIENE EL TAMAÑO FIJO E IDEAL PARA CADA TARJETA */
+        .game-card {
+            width: 240px !important;
+            min-width: 240px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            box-sizing: border-box !important;
+        }
+
+            /* 4. ADAPTACIÓN EXCLUSIVA PARA MÓVILES */
+        @media (max-width: 600px) {
+            /* Pone las tarjetas de abajo una debajo de otra */
+            #games-grid, .games-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 15px !important;
+                width: 100% !important;
+            }
+
+            /* Hace que las tarjetas se estiren y ocupen el ancho del móvil */
+            .game-card {
+                width: 90% !important;
+                min-width: 90% !important;
+                margin: 10px auto !important;
+            }
+
+            /* Pone los botones de arriba en vertical */
+            .controls-panel, div[class*="controls-panel"] {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                width: 100% !important;
+                gap: 12px !important;
+            }
+
+            /* Ajusta los selectores y botones al ancho de la pantalla */
+            .controls-panel select, 
+            .controls-panel button, 
+            .controls-panel input,
+            .controls-panel .field-group {
+                width: 90% !important;
+                max-width: 90% !important;
+                margin: 5px auto !important;
+            }
+
+            /* Adapta las tarjetas de los resultados */
+            .result-card, #results, .results-panel, #tickets-container {
+                width: 95% !important;
+                min-width: 95% !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+        } /* --- DISEÑO EXCLUSIVO PARA MÓVILES (TODO EN VERTICAL) --- */
+@media (max-width: 600px) {
+    
+    /* 1. SECCIÓN DE JUEGOS DE ABAJO: Fuerza una sola columna vertical */
+    #games-grid, .games-grid {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Hace que cada tarjeta de juego ocupe el ancho del móvil de forma legible */
+    .game-card {
+        width: 90% !important;
+        min-width: 90% !important;
+        margin: 10px auto !important;
+    }
+
+    /* 2. PANEL DE CONTROL DE ARRIBA: Ordena los botones hacia abajo */
+    .controls-panel, div[class*="controls-panel"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    /* Estira el selector de juego y los botones en el móvil */
+    .controls-panel select, 
+    .controls-panel button, 
+    .controls-panel input,
+    .controls-panel .field-group {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 5px auto !important;
+    }
+
+    /* 3. TARJETAS DE RESULTADOS: Adaptadas perfectamente a la pantalla */
+    .result-card, #results, .results-panel, #tickets-container {
+        width: 95% !important;
+        min-width: 95% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+}
